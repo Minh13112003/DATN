@@ -1,0 +1,94 @@
+.movie-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.image-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.overlay-button {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20%; /* Phủ kín hình ảnh */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Màu trong suốt */
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    opacity: 0; /* Ẩn nút khi chưa hover */
+    transition: opacity 0.3s ease-in-out;
+}
+
+.image-container:hover .overlay-button {
+    opacity: 1; /* Hiện nút khi rê chuột vào */
+}
+
+
+.card-img-top {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease-in-out;
+    height: 300px;
+}
+
+.image-container:hover .card-img-top {
+    transform: scale(1.1);
+}
+
+/* Hiệu ứng overlay chỉ nằm ở phần dưới hình ảnh */
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 35%; /* Chỉ chiếm 35% phía dưới */
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.image-container:hover .overlay {
+    opacity: 1;
+}
+
+.categories {
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.categories .badge {
+    font-size: 12px;
+    padding: 5px 8px;
+}
+
+.overlay .btn {
+    margin-top: 5px;
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+/* Giữ tên phim hiển thị rõ ràng */
+.card-body {
+    text-align: center;
+    background: #fff;
+    padding: 10px;
+}
+
+.card-title {
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 5px;
+}

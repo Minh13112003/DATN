@@ -1,0 +1,80 @@
+.carousel-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-image-container {
+    position: relative;
+    height: 600px;
+}
+
+.carousel-image {
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.7);
+}
+
+.carousel-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0) 100%);
+    display: flex;
+    align-items: center;
+}
+
+.carousel-title {
+    color: white;
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.carousel-description {
+    color: #f8f9fa;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.movie-info {
+    margin-bottom: 1.5rem;
+}
+
+.movie-info .badge {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%;
+}
+
+.carousel-indicators {
+    margin-bottom: 2rem;
+}
+
+.carousel-indicators button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin: 0 5px;
+}
+
+@media (max-width: 768px) {
+    .carousel-image-container {
+        height: 400px;
+    }
+
+    .carousel-title {
+        font-size: 2rem;
+    }
+
+    .carousel-description {
+        font-size: 1rem;
+    }
+}

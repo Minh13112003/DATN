@@ -1,0 +1,183 @@
+/* Dashboard Container */
+.dashboard-container {
+    min-height: 100vh;
+    background-color: #000000;
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    margin-top: 56px; /* Height of navbar */
+}
+
+/* Main Content Section */
+.main-content {
+    background-color: #000;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: whitesmoke;
+    margin-bottom: 2rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.section-title span {
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+html, body {
+    background-color: #000000 !important;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.section-title span::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background-color: currentColor;
+}
+
+/* Card Styles */
+.movie-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.movie-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.movie-card .card-img-top {
+    height: 300px;
+    object-fit: cover;
+}
+
+.movie-card .card-body {
+    padding: 1.25rem;
+    background-color: #000;
+}
+
+.movie-card .card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.movie-card .card-text {
+    color: white;
+    font-size: 0.9rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .movie-card .card-img-top {
+        height: 200px;
+    }
+}
+
+/* Animation Classes */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.advanced-search {
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+.advanced-search.hide {
+    display: none;
+}
+
+.advanced-search.show {
+    display: block;
+}
+
+.filter-section {
+    position: sticky;
+    top: 20px;
+}
+
+.block {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+/* Style cho các select */
+.ant-select {
+    width: 100% !important;
+}
+
+.ant-select-selector {
+    border-radius: 4px !important;
+}
+
+/* Style cho checkbox group */
+.ant-checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Style cho button thu gọn/mở rộng */
+.btn-link {
+    color: #1890ff;
+    text-decoration: none;
+    padding: 0;
+    height: auto;
+    line-height: 1;
+}
+
+.btn-link:hover {
+    color: #40a9ff;
+    text-decoration: none;
+}

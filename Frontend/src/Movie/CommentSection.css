@@ -1,0 +1,31 @@
+.comment-section {
+    background-color: #f8f9fa;
+    padding: 2rem;
+    border-radius: 8px;
+    color: black;
+}
+
+.comment-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #e9ecef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6c757d;
+}
+
+.comment-card {
+    transition: transform 0.2s;
+}
+
+.comment-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.reply-form {
+    margin-left: 3rem;
+    margin-top: 1rem;
+}

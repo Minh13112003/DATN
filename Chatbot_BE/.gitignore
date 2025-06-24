@@ -1,0 +1,9 @@
+.env
+FinalProject/
+vector-store/
+**/pycache
+*.pyc
+__pycache__/
+
+myvenv/
+*.txt
