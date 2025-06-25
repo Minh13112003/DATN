@@ -65,11 +65,11 @@ namespace DoAnTotNghiep.Services
             switch (type)
             {
                 case 0:
-                    ItemData item = new ItemData("Nâng cấp vip 3 ngày", quantity: 1, price: 1000);
+                    ItemData item = new ItemData("Nâng cấp vip 3 ngày", quantity: 1, price: 45000);
                     List<ItemData> items = new List<ItemData>();
                     items.Add(item);
 
-                    PaymentData paymentData = new PaymentData(orderCode, 2000, "VIP3",
+                    PaymentData paymentData = new PaymentData(orderCode, 45000, "VIP3",
                          items, cancelUrl: _configuration["PayOS:Cancel_url"]!, returnUrl: _configuration["PayOS:Return_url"]!);
                     CreatePaymentResult createPayment = await _payos.createPaymentLink(paymentData);
                     var PaymentOrder = new PaymentOrder
@@ -86,11 +86,11 @@ namespace DoAnTotNghiep.Services
                     return createPayment;                   
                     
                 case 1:
-                    ItemData item2 = new ItemData("Nâng cấp vip 7 ngày", quantity: 1, price: 2000);
+                    ItemData item2 = new ItemData("Nâng cấp vip 7 ngày", quantity: 1, price: 80000);
                     List<ItemData> items2 = new List<ItemData>();
                     items2.Add(item2);
 
-                    PaymentData paymentData2 = new PaymentData(orderCode, 2000, "VIP7",
+                    PaymentData paymentData2 = new PaymentData(orderCode, 80000, "VIP7",
                          items2, cancelUrl: _configuration["PayOS:Cancel_url"]!, returnUrl: _configuration["PayOS:Return_url"]!);
                     CreatePaymentResult createPayment2 = await _payos.createPaymentLink(paymentData2);
                     var PaymentOrder2 = new PaymentOrder
@@ -106,11 +106,11 @@ namespace DoAnTotNghiep.Services
                     await _databaseContext.SaveChangesAsync();
                     return createPayment2;
                 case 2:
-                    ItemData item3 = new ItemData("Nâng cấp vip 30 ngày", quantity: 1, price: 3000);
+                    ItemData item3 = new ItemData("Nâng cấp vip 30 ngày", quantity: 1, price: 280000);
                     List<ItemData> items3 = new List<ItemData>();
                     items3.Add(item3);
 
-                    PaymentData paymentData3 = new PaymentData(orderCode, 3000, "VIP30",
+                    PaymentData paymentData3 = new PaymentData(orderCode, 280000, "VIP30",
                          items3, cancelUrl: _configuration["PayOS:Cancel_url"]!, returnUrl: _configuration["PayOS:Return_url"]!);
                     CreatePaymentResult createPayment3 = await _payos.createPaymentLink(paymentData3);
                     var PaymentOrder3 = new PaymentOrder
