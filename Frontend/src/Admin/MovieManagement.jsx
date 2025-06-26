@@ -81,36 +81,44 @@ const MovieManagement = () => {
     useEffect(() => {
         const debounceSearch = setTimeout(() => {
           if (searchTerm.trim() === "") {
-            setFilteredMovies(movies); // Reset to all movies if search term is empty
+            setFilteredMovies(movies);
             return;
           }
+          const searchValue = searchTerm.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
           const filtered = movies.filter((movie) => {
-            const searchValue = searchTerm.toLowerCase();
+            const movieId = String(movie.id || '').normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+            const movieTitle = (movie.title || '').normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+            const movieCategories = (movie.nameCategories || '').normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+            const movieType = (movie.typeMovie || '').normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+            const movieNation = (movie.nation || '').normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+      
             switch (searchType) {
               case "Id":
-                return (movie.id).normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().includes(searchValue);
+                return movieId.includes(searchValue);
               case "Title":
-                return (movie.title).normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().includes(searchValue);
+                return movieTitle.includes(searchValue);
               case "Category":
-                return (movie.nameCategories).normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().includes(searchValue);
+                return movieCategories.includes(searchValue);
               case "Type":
-                return (movie.typeMovie).normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().includes(searchValue);
+                return movieType.includes(searchValue);
               case "Nation":
-                return (movie.nation).normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().includes(searchValue);
+                return movieNation.includes(searchValue);
               case "Tất cả":
-                return (movie.id).normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().includes(searchValue) || (movie.title).normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().includes(searchValue) 
-                || (movie.nameCategories).normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().includes(searchValue) || (movie.typeMovie).normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().includes(searchValue)
-                || (movie.nation).normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().includes(searchValue);
+                return movieId.includes(searchValue) ||
+                       movieTitle.includes(searchValue) ||
+                       movieCategories.includes(searchValue) ||
+                       movieType.includes(searchValue) ||
+                       movieNation.includes(searchValue);
               default:
                 return true;
             }
           });
-    
+      
           setFilteredMovies(filtered);
-          setCurrentPage(1); // Reset to first page on search
-        }, 1000); // 1-second delay
-        return () => clearTimeout(debounceSearch); // Cleanup timeout
-  }, [searchTerm, searchType, movies]); // Trigger on searchTerm or searchType change
+          setCurrentPage(1);
+        }, 300);
+        return () => clearTimeout(debounceSearch);
+      }, [searchTerm, searchType, movies]);// Trigger on searchTerm or searchType change
     
 
     const fetchMovies = async () => {

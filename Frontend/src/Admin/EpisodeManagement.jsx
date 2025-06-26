@@ -47,28 +47,38 @@ const EpisodeManagement = () => {
     }, []);
     useEffect(() => {
         const debounceSearch = setTimeout(() => {
-            if (searchTerm.trim() === "" ) {
-                setFilteredEpisodes(episodeList); // Hiển thị tất cả nếu không có từ khóa
-                console.log(episodeList);
-                setCurrentPage(1); // Reset về trang đầu
-                return;
+          // Nếu không có từ khóa, hiển thị toàn bộ danh sách
+          if (searchTerm.trim() === "") {
+            setFilteredEpisodes(episodeList);
+            console.log('No search term, showing all episodes:', episodeList);
+            setCurrentPage(1);
+            return;
+          }
+      
+          // Chuẩn hóa từ khóa tìm kiếm
+          const searchValue = searchTerm.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+      
+          // Lọc danh sách dựa trên searchType
+          const filtered = episodeList.filter((episode) => {
+            // Xử lý trường hợp dữ liệu không hợp lệ
+            if (!episode || typeof episode !== 'object') return false;
+      
+            const episodeTitle = (episode.title || '').normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+      
+            if (searchType === "Tên Phim") {
+              return episodeTitle.includes(searchValue);
             }
-
-            const filtered = episodeList.filter((episode) => {
-                const searchValue = searchTerm.toLowerCase();
-                if (searchType === "Tên Phim") {
-                    // return episode.title.toLowerCase().includes(searchValue);
-                    return (episode.title).normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().includes(searchValue);
-                }
-                return true; // Trường hợp mặc định (không lọc)
-            });
-
-            setFilteredEpisodes(filtered);
-            setCurrentPage(1); // Reset về trang đầu khi lọc
+            return true; // Mặc định không lọc nếu searchType khác
+          });
+      
+          console.log('Filtered episodes:', filtered); // Debug
+          setFilteredEpisodes(filtered);
+          setCurrentPage(1); // Reset về trang đầu khi lọc
         }, 1000); // Trì hoãn 1 giây
-
-        return () => clearTimeout(debounceSearch); // Dọn dẹp timeout
-    }, [searchTerm, searchType, episodeList]);
+      
+        // Dọn dẹp timeout khi component unmount hoặc dependencies thay đổi
+        return () => clearTimeout(debounceSearch);
+      }, [searchTerm, searchType, episodeList]);
 
     const fetchEpisodes = async () => {
         try {
@@ -100,7 +110,8 @@ const EpisodeManagement = () => {
             //     }
             // });
             const response = await GetAllMovie(currentPage, itemsPerPage);
-            setMovieList(response.data.movies);
+            const listmovie = await GetAllMovie(1,100000000);
+            setMovieList(listmovie.data.movies);
         } catch (error) {
             console.error('Error fetching movies:', error);
             toast.error('Không thể tải danh sách phim');
