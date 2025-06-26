@@ -617,3 +617,4 @@ E:\DoAnTotNghiep\SourceCode\Backend\obj\Debug\net8.0\ref\DoAnTotNghiep.dll
 E:\DoAnTotNghiep\SourceCode\Backend\bin\Debug\net8.0\Newtonsoft.Json.dll
 E:\DoAnTotNghiep\SourceCode\Backend\bin\Debug\net8.0\payos-lib-backend-dotnet.dll
 E:\DoAnTotNghiep\SourceCode\Backend\bin\Debug\net8.0\DoAnTotNghiep.staticwebassets.runtime.json
+E:\DoAnTotNghiep\SourceCode\Backend\bin\Debug\net8.0\CloudinaryDotNet.dll

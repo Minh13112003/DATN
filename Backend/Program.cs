@@ -1,4 +1,5 @@
-﻿using DoAnTotNghiep.Data;
+﻿using CloudinaryDotNet;
+using DoAnTotNghiep.Data;
 using DoAnTotNghiep.Model;
 using DoAnTotNghiep.Repository;
 using DoAnTotNghiep.Services;
@@ -42,6 +43,15 @@ builder.Services.AddSwaggerGen(option =>
             new string[]{}
         }
     });
+});
+builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
+
+// Register Cloudinary as a singleton
+builder.Services.AddSingleton<Cloudinary>(sp =>
+{
+    var config = sp.GetRequiredService<IConfiguration>().GetSection("CloudinarySettings").Get<CloudinarySettings>();
+    var account = new Account(config.CloudName, config.ApiKey, config.ApiSecret);
+    return new Cloudinary(account);
 });
 builder.Services.AddDbContext<DatabaseContext>(option =>
 {

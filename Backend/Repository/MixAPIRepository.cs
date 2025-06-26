@@ -163,7 +163,10 @@ namespace DoAnTotNghiep.Repository
                 .Select(m => new { m.nation, m.slugNation })
                 .Distinct()
                 .ToList();
-
+            var MovieTitle = movies
+                .Select(m => new { m.title, m.slugTitle })
+                .Distinct()
+                .ToList();
             var Statuses = movies
                 .Select(m => m.status)
                 .Distinct()
@@ -244,7 +247,8 @@ namespace DoAnTotNghiep.Repository
                 Statuses,
                 Movie,
                 UpdateNewestMovie,
-                FinishedMovie
+                FinishedMovie,
+                MovieTitle
             };
         }
 

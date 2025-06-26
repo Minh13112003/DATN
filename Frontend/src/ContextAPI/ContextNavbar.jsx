@@ -16,6 +16,7 @@ const DataProvider = ({ children }) => {
     const [newestMovies, setNewestMovies] = useState([]);
     const [finishedMovies, setFinishedMovies] = useState([]);
     const [keyword, setKeyword] = useState("");
+    const [movieTitle, setMovieTitle] = useState([]);
 
     const statusMap = {
         "0": "Chưa có lịch",
@@ -50,7 +51,7 @@ const DataProvider = ({ children }) => {
                 setMovieTypes(data.movieTypes || []);
                 setNations(data.nations || []);
                 setStatuses(data.statuses || []);
-                
+                setMovieTitle(data.movieTitle || []);
                 const processedMovies = processMovieData(data.movie || []);
                 const processedNewestMovie = processMovieData(data.updateNewestMovie || []);
                 const processedFinishedMovie = processMovieData(data.finishedMovie || []);
@@ -106,7 +107,8 @@ const DataProvider = ({ children }) => {
                 searchMovies,    // Movie cho Search
                 statusMap, 
                 keyword, 
-                setKeyword 
+                setKeyword,
+                movieTitle 
             }}
         >
             {children}

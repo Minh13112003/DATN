@@ -1,5 +1,4 @@
-﻿using DoAnTotNghiep.Data.EntitiesConfig;
-using DoAnTotNghiep.Model;
+﻿using DoAnTotNghiep.Model;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;

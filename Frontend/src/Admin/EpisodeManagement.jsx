@@ -17,7 +17,7 @@ import { slidebarMenus } from './slidebar';
 const EpisodeManagement = () => {
     const navigate = useNavigate();
     const location = useLocation();
-    const { categories, movieTypes, nations, statuses, statusMap } = useContext(DataContext);
+    const { categories, movieTypes, nations, statuses, statusMap, movieTitle } = useContext(DataContext);
     const [episodeList, setEpisodeList] = useState([]);
     const [movieList, setMovieList] = useState([]);
     const [showModal, setShowModal] = useState(false);
@@ -31,7 +31,6 @@ const EpisodeManagement = () => {
     const [selectedBackground, setSelectedBackground] = useState('');
     const [searchType, setSearchType] = useState("Tên Phim");
     const [searchTerm, setSearchTerm] = useState("");
-    const [filteredMovies, setFilteredMovies] = useState([]);
     const [filteredEpisodes, setFilteredEpisodes] = useState([])
     const [formData, setFormData] = useState({
         idLinkMovie: '',
