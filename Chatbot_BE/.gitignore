@@ -6,4 +6,3 @@ vector-store/
 __pycache__/
 
 myvenv/
-*.txt

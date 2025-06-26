@@ -1,0 +1,12 @@
+sqlalchemy
+psycopg2-binary
+fastapi
+uvicorn
+pydantic
+python-dotenv
+langchain-community
+langchain
+langchain-chroma
+langchain-google-genai
+google-genai
+cohere
