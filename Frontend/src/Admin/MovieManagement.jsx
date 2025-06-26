@@ -253,10 +253,7 @@ const MovieManagement = () => {
                     backgroundFormData.append('file', backgroundFile);
                     backgroundFormData.append('NameMovie', formData.title);
                     const response = UploadBackground(backgroundFormData);
-                    if (response.status !== 200) {
-                        toast.error("Đã có lỗi khi Up ảnh nền");
-                        return;
-                    }
+                    
                 }
                 fetchMovies();
                 setShowModal(false);
