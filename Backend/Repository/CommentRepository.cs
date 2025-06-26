@@ -31,7 +31,7 @@ namespace DoAnTotNghiep.Repository
             return true;
         }
 
-        public async Task<bool> DeleteComment(string role,string username, string Idcomment)
+        public async Task<bool> DeleteComment(string role, string username, string Idcomment)
         {
             if (username == null || Idcomment == null) return false;
             var comment = await _dbContext.Comments.FirstOrDefaultAsync(i => (i.IdUserName == username || role == "Admin") && i.IdComment == Idcomment);

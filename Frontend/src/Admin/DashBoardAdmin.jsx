@@ -279,24 +279,27 @@ const DashBoardAdmin = () => {
     const updateMovieRatingChart = (data, sort) => {
         let sortedData = [...data];
         if (sort === 'point') {
-            sortedData.sort((a, b) => b.point - a.point);
+            sortedData.sort((a, b) => b.point - a.point); // Sắp xếp giảm dần theo điểm
         } else if (sort === 'view') {
-            sortedData.sort((a, b) => b.view - a.view);
+            sortedData.sort((a, b) => b.view - a.view); // Sắp xếp giảm dần theo lượt xem
         }
-
+    
+        // Lấy top 10 phim
+        const top10Data = sortedData.slice(0, 10);
+    
         const movieRatingChartData = {
-            labels: sortedData.map(item => item.title),
+            labels: top10Data.map(item => item.title),
             datasets: [
                 {
                     label: 'Điểm đánh giá',
-                    data: sortedData.map(item => item.point),
+                    data: top10Data.map(item => item.point),
                     backgroundColor: 'rgba(255, 99, 132, 0.7)',
                     borderColor: 'rgb(255, 99, 132)',
                     borderWidth: 1,
                 },
                 {
                     label: 'Lượt xem',
-                    data: sortedData.map(item => item.view),
+                    data: top10Data.map(item => item.view),
                     backgroundColor: 'rgba(54, 162, 235, 0.7)',
                     borderColor: 'rgb(54, 162, 235)',
                     borderWidth: 1,

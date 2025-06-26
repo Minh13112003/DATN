@@ -1,6 +1,7 @@
 import React from 'react';
 import './Moicapnhat.css'; 
 import { Link } from 'react-router-dom';
+
 const MoiCapNhat = ({ movies, type, links }) => {
     return (
         <div>
@@ -11,11 +12,16 @@ const MoiCapNhat = ({ movies, type, links }) => {
                 </div>
             </div>
             <div className='row mt-3'>
-                {movies.map((movie, index) => (
+                {movies.slice(0, 12).map((movie, index) => (
                     <div key={index} className='col-lg-2 col-md-4 col-sm-6 mb-4'>
                         <div className="movie-card">
                             <div className="image-container">
-                                <img src={movie.image} className="card-img-top" alt={movie.title} />
+                                <img 
+                                    src={movie.image} 
+                                    className="card-img-top" 
+                                    alt={movie.title} 
+                                    loading="lazy" // Thêm thuộc tính lazy loading
+                                />
                                 <div className="overlay">
                                     <div className="categories">
                                         {movie.nameCategories.split(', ').map((category, idx) => (

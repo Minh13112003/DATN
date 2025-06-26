@@ -124,7 +124,7 @@ const ListHistoryFilm = () => {
                             <div key={index} className='col-lg-2 col-md-4 col-sm-6 mb-4'>
                                 <div className="movie-card">
                                     <div className="image-container">
-                                        <img src={movie.image} className="card-img-top" alt={movie.title} />
+                                        <img src={movie.image} className="card-img-top" alt={movie.title} loading="lazy"/>
                                         <div className="overlay">
                                             <div className="categories">
                                                 {movie.nameCategories.split(', ').map((category, idx) => (
