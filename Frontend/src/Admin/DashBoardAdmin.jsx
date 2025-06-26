@@ -625,8 +625,7 @@ const DashBoardAdmin = () => {
                         </Card>
                     </Container>
                 </div>
-            </div>
-            <Footer />
+            </div>            
         </div>
     );
 };

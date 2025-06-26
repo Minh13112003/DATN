@@ -369,7 +369,7 @@ const CommentManagement = () => {
                                     />
                                 </Pagination>
                             </div>
-                        <Footer/>
+                        
                     </div>
                 )}
 

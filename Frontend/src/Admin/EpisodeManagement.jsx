@@ -498,7 +498,7 @@ const EpisodeManagement = () => {
                     </Container>
                 </div>
             </div>
-            <Footer />
+            
         </div>
     );
 };

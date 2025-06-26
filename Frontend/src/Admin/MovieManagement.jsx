@@ -675,7 +675,7 @@ const MovieManagement = () => {
                                 </Pagination>
                             </div>
                         </div>
-                        <Footer/>
+                        
                         <Modal show={showModal} onHide={() => setShowModal(false)} size="lg">
                             <Modal.Header closeButton>
                                 <Modal.Title>

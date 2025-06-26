@@ -401,7 +401,7 @@ const FeedbackManagement = () => {
                 </Modal.Footer>
             </Modal>
 
-            <Footer />
+            
         </div>
     );
 };

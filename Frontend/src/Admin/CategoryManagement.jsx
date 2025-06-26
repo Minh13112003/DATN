@@ -298,7 +298,7 @@ const CategoryManagement = () => {
                     </Container>
                 </div>
             </div>
-            <Footer />
+           
         </div>
     );
 };

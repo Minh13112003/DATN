@@ -523,7 +523,7 @@ const AccountManagement = () => {
                 </Modal.Body>
             </Modal>
 
-            <Footer />
+            
         </div>
     );
 };

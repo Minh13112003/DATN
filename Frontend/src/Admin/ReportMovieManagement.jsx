@@ -174,6 +174,7 @@ const ReportCommentManagement = ({searchType, searchTerm}) => {
                             <tr>
                                 <th>ID Báo cáo</th>
                                 {/* <th>ID Phim</th> */}
+                            
                                 <th>Người báo cáo</th>
                                 <th>Nội dung báo cáo</th>
                                 <th>Thời Gian</th>
